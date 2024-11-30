@@ -422,58 +422,8 @@ public void modificarProveedor(Empresas proveedor) {
 
 
 
-/*
-// Método para borrar proveedor
-public void borrarProveedor(String codEmp) {
- Connection cn = null;
-    CallableStatement st = null;
-    ResultSet rs = null;
 
-    try {
-        // Obtener la conexión a la base de datos
-        cn = MySQLConexion.getConexion();
-
-        // Preparar el SQL para llamar al procedimiento almacenado
-        String sql = "{CALL eliminarProveedor(?)}";
-        st = cn.prepareCall(sql);
-
-        // Establecer el parámetro de entrada para el procedimiento almacenado
-        st.setString(1, codEmp);  // ID del proveedor a eliminar
-
-        // Ejecutar el procedimiento almacenado
-        boolean hasResultSet = st.execute();  // Usamos execute() porque devuelve un ResultSet con el mensaje
-        
-        // Verificar si el procedimiento devuelve un conjunto de resultados
-        if (hasResultSet) {
-            rs = st.getResultSet();
-            if (rs.next()) {
-                // Obtener el mensaje del procedimiento almacenado
-                String mensaje = rs.getString("Mensaje");
-                System.out.println(mensaje);  // Mostrar el mensaje en la consola
-            }
-        }
-
-    } catch (SQLException e) {
-        System.err.println("Error al eliminar proveedor: " + e.getMessage());
-        e.printStackTrace();  // Mostrar cualquier error en la consola
-    } catch (Exception e) {
-        System.err.println("Error general: " + e.getMessage());
-        e.printStackTrace();
-    } finally {
-        // Cerrar recursos en el bloque finally
-        try {
-            if (rs != null) rs.close();
-            if (st != null) st.close();
-            if (cn != null) cn.close();
-        } catch (SQLException e) {
-            System.err.println("Error al cerrar recursos: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-}
-*/
-
-
+// ELIMINAR PROVEEDOR
 public void eliminarProveedor(String idEmpresa) {
     Connection cn = null;
     CallableStatement st = null;

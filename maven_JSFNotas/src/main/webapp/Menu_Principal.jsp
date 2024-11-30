@@ -18,8 +18,9 @@
 <nav>
     <a href="Menu_Principal.jsp">INICIO</a>
     <a href="pagCrudProv.jsp">PROVEEDORES</a>
-    <a href="pagVentas.jsp">VENTAS</a>
     <a href="pagProducto.jsp">PRODUCTOS</a>
+    <a href="PagVistaVentas.xhtml">Ventas</a>
+    <a href="pagVentas.jsp">GRAFICO VENTAS</a>
 </nav>
 
 <!-- Texto central -->
