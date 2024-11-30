@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Vista de Ventas</title>
+        <!-- Vinculación del CSS -->
+        <h:outputStylesheet name="css/styles.css"/> 
+    </h:head>
+    <h:body>
+        <header>
+            <h1>Vista de Ventas</h1>
+             <!-- Menú de navegación -->
+            <nav>
+                <h:link outcome="Menu_Principal.jsp" value="INICIO"/>
+                <h:link outcome="pagCrudProv.jsp" value="PROVEEDORES"/>
+                <h:link outcome="pagVentas.jsp" value="VENTAS"/>
+                <h:link outcome="pagProducto.jsp" value="PRODUCTOS"/>
+            </nav>
+        </header>
+
+        <!-- Filtro de ventas -->
+        <div class="central-text">
+            <h2>Filtrar Ventas</h2>
+            <h:form>
+                <h:outputLabel for="texto" value="Filtrar por ID de Venta o Nombre de Cliente:" />
+                <h:inputText id="texto" value="#{controlVentas.texto}" />
+                <h:commandButton value="Filtrar" action="#{controlVentas.filtrar}" />
+            </h:form>
+        </div>
+
+        <!-- Tabla de ventas -->
+        <h:form>
+            <h2>Lista de Ventas</h2>
+            <h:dataTable value="#{controlVentas.listaPedidos}" var="p" border="1" cellpadding="5" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">ID de Venta</f:facet>
+                    #{p.idVenta}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cliente</f:facet>
+                    #{p.nombreCliente}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Fecha de Venta</f:facet>
+                    #{p.fechaVenta}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Total</f:facet>
+                    #{p.totalVenta}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Ver Detalle</f:facet>
+                    <h:commandButton value="Ver Detalle" action="#{controlVentas.verDetalle(p)}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <!-- Detalles de venta -->
+        <h:form rendered="#{not empty controlVentas.listaDetallePedidos}">
+            <h2>Detalles del Pedido</h2>
+            <h:dataTable value="#{controlVentas.listaDetallePedidos}" var="detalle" border="1" cellpadding="5" cellspacing="0">
+                <h:column>
+                    <f:facet name="header">Producto</f:facet>
+                    #{detalle.nombreProducto}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cantidad</f:facet>
+                    #{detalle.cantidad}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Precio Unitario</f:facet>
+                    #{detalle.precioUnitario}
+                </h:column>
+            </h:dataTable>
+            <h:outputText value="Total: #{controlVentas.total}" />
+        </h:form>
+
+        <!-- Pie de página -->
+        <footer>
+            <p>&copy; 2024 Todos los derechos reservados</p>
+        </footer>
+    </h:body>
+</html>
