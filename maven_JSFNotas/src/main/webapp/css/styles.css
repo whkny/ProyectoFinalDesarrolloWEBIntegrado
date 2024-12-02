@@ -1,12 +1,20 @@
-/* Variables */
+/* ============================= */
+/* Variables de colores y fuentes */
+/* ============================= */
 :root {
-    --dark-color: #243642;  
-    --medium-dark-color: #387478;  
-    --light-color: #629584; 
-    --extra-light-color: #E2F1E7;  
+    --dark-color: #243642;
+    --medium-dark-color: #387478;
+    --light-color: #629584;
+    --extra-light-color: #E2F1E7;
+    --background-color: #f4f4f9;
+    --primary-color: #007bff;
+    --secondary-color: #555;
+    --font-family: 'Arial', sans-serif;
 }
 
-/* Estilos generales */
+/* =================== */
+/* Reset y Estilo Base */
+/* =================== */
 * {
     margin: 0;
     padding: 0;
@@ -14,32 +22,43 @@
 }
 
 body, html {
-    font-family: Arial, sans-serif;
-    height: 100%;
-    background: url('fotos/FONDOMENU.jpg') no-repeat center center fixed, var(--extra-light-color);
+    font-family: var(--font-family);
+    background: url('fotos/FONDOMENU.jpg') no-repeat center center fixed, var(--background-color);
     background-size: cover;
     color: var(--dark-color);
+    overflow-x: hidden;
 }
 
-/* Encabezado */
+/* ==================== */
+/* Estilos del Encabezado */
+/* ==================== */
 header {
     background-color: var(--dark-color);
     color: white;
     padding: 20px;
     text-align: center;
+    animation: fadeInDown 1s ease-in-out;
 }
 
-/* Menú */
+header h1 {
+    font-size: 2.5em;
+}
+
+/* ==================== */
+/* Estilos de Navegación */
+/* ==================== */
 nav {
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: var(--medium-dark-color);
     padding: 10px 20px;
-    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideInRight 1.2s ease-in-out;
 }
 
 nav a {
@@ -49,123 +68,115 @@ nav a {
     font-size: 18px;
     padding: 8px 16px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 nav a:hover {
     background-color: var(--light-color);
+    transform: scale(1.1);
 }
 
-/* Texto central */
+/* =================== */
+/* Estilos del Contenido */
+/* =================== */
 .central-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .central-text h2 {
     font-size: 60px;
+    color: var(--primary-color);
+    animation: bounceIn 1.5s ease-in-out;
 }
 
 .central-text p {
     font-size: 30px;
     margin-top: 10px;
+    color: var(--secondary-color);
 }
 
-/* Pie de página */
+/* =================== */
+/* Estilos del Pie de Página */
+/* =================== */
 footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding: 10px;
     background-color: var(--dark-color);
     color: white;
     text-align: center;
+    animation: fadeInUp 1s ease-in-out;
 }
 
-/* Formulario */
-form {
-    background-color: var(--light-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
-    max-width: 600px;
+/* ================== */
+/* Animaciones CSS */
+/* ================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-input[type="text"], input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid var(--dark-color);
-    border-radius: 4px;
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Estilo para el placeholder */
-input::placeholder {
-    color: var(--dark-color);  /* Establecer el color que deseas para el texto del placeholder */
-    opacity: 1;  /* Asegurarse de que el placeholder no sea translúcido */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Estilo cuando el campo está en foco */
-input:focus::placeholder {
-    color: var(--light-color);  /* Cambiar color cuando el campo está en foco */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-button {
-    background-color: var(--medium-dark-color);
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+@keyframes bounceIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-button:hover {
-    background-color: var(--dark-color);
-}
-
-/* Tabla */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid var(--light-color);
-}
-
-th {
-    background-color: var(--extra-light-color);
-}
-
-tr:hover {
-    background-color: var(--extra-light-color);
-}
-
-/* Estilos para acciones en la tabla */
-.acciones button {
-    background-color: var(--dark-color);
-}
-
-.acciones button:hover {
-    background-color: var(--medium-dark-color);
-}
-
+/* ================ */
 /* Media Queries */
+/* ================ */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
+        align-items: center;
     }
 
     nav a {
@@ -180,46 +191,4 @@ tr:hover {
     .central-text p {
         font-size: 20px;
     }
-}
-
-/* Estilo para la disposición de gráficos */
-.grafico-container {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
-    flex-direction: column; /* Aseguramos que los gráficos estén en una columna */
-    gap: 20px; /* Espacio entre los gráficos */
-    height: 100vh; /* Usar el 100% de la altura de la ventana */
-}
-
-canvas {
-    width: 450px !important; /* Ancho reducido para los gráficos */
-    height: 300px !important; /* Altura reducida para los gráficos */
-}
-
-/* Estilos adicionales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-}
-
-h2 {
-    color: #007bff;
-}
-
-h:form {
-    margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.table-striped tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.table-striped tr:hover {
-    background-color: #f1f1f1;
 }
