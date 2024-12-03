@@ -1,0 +1,118 @@
+/* ============================= */
+/* Variables de Colores y Fuentes */
+/* ============================= */
+:root {
+    --primary-bg-color: #f4f6f9;
+    --secondary-bg-color: #ffffff;
+    --header-bg-color: #2d3e50;
+    --footer-bg-color: #212b38;
+    --button-bg-color: #007bff;
+    --button-hover-bg-color: #0056b3;
+    --table-header-bg-color: #343a40;
+    --table-row-bg-color: #f8f9fa;
+    --text-color: #333333;
+    --link-color: #007bff;
+    --chart-bg-color: rgba(75, 192, 192, 0.6);
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* =================== */
+/* Estilo General */
+/* =================== */
+body {
+    font-family: var(--font-family);
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: var(--header-bg-color);
+    font-size: 2.5em;
+    margin-top: 30px;
+}
+
+/* =================== */
+/* Navegación */
+/* =================== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background-color: var(--header-bg-color);
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 12px 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--button-bg-color);
+    transform: translateY(-2px);
+}
+
+/* =================== */
+/* Contenedor de Gráficos */
+/* =================== */
+.grafico-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.grafico-container canvas {
+    background-color: var(--secondary-bg-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px; /* Ancho máximo */
+    width: 90%; /* Ancho relativo al contenedor */
+    height: auto; /* Ajuste automático del alto */
+    aspect-ratio: 3 / 2; /* Relación de aspecto (ancho/alto) */
+}
+
+
+
+/* =================== */
+/* Pie de Página */
+/* =================== */
+footer {
+    background-color: var(--footer-bg-color);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* ============================= */
+/* Media Queries */
+/* ============================= */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grafico-container canvas {
+        width: 90%;
+    }
+}
