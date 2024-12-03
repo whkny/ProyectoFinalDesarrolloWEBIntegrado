@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, String> {
-    // Métodos personalizados si los necesitas
+
 }

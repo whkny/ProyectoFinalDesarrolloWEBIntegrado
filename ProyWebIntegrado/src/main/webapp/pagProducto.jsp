@@ -12,9 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Productos</h1>
-        </header>
+
         
 <nav>
     <a href="Menu_Principal.jsp">INICIO</a>

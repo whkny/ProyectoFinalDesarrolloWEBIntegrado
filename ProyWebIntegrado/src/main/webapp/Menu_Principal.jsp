@@ -5,14 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vega's Store</title>
-    <!-- Enlazar la hoja de estilos externa -->
     <link rel="stylesheet" href="css/estilovistaventas.css">
 </head>
 <body>
-
-<header>
-    <h1> </h1>
-</header>
 
 <!-- Menú -->
 <nav>
@@ -28,6 +23,19 @@
     <h2>Vega's Store</h2>
     <p>La máxima calidad para nuestros clientes. Encuentra productos de primera calidad en nuestra tienda.</p>
 </div>
+
+<center>
+
+<div class="carousel-container">
+    <div class="carousel">
+        <img src="fotos/marca1.png" alt="Marca 1">
+        <img src="fotos/marca2.png" alt="Marca 2">
+        <img src="fotos/marca3.png" alt="Marca 3">
+        <img src="fotos/marca4.png" alt="Marca 4">
+        <img src="fotos/marca5.png" alt="Marca 5">
+    </div>
+</div>
+</center>
 
 <footer>
     <p>&copy; 2024 Universidad Tecnológica del Perú</p>

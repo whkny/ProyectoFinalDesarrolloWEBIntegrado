@@ -15,11 +15,7 @@
 </head>
 <body>
 
-<header>
-    <h1>Proveedores</h1>
-</header>
 
-    
 <nav>
     <a href="Menu_Principal.jsp">INICIO</a>
     <a href="pagCrudProv.jsp">PROVEEDORES</a>

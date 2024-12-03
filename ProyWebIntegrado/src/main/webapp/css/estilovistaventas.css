@@ -116,3 +116,50 @@ footer p {
         width: 90%;
     }
 }
+
+
+
+/* Contenedor del carrusel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 150px; /* Altura del contenedor */
+    background-color: #f4f4f4;
+}
+
+/* Carrusel que contiene las imágenes */
+.carousel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    position: absolute;
+    width: calc(100% * 2); /* El doble del ancho para el desplazamiento continuo */
+    animation: scrollCarousel 15s linear infinite;
+}
+
+/* Estilo de las imágenes */
+.carousel img {
+    width: 150px; /* Ancho máximo */
+    height: 150pc; /* Ajuste proporcional */
+    max-height: 100px; /* Altura máxima */
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+    filter: opacity(0.5); /* Difuminado inicial */
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Efecto al pasar el mouse sobre una imagen */
+.carousel img:hover {
+    filter: opacity(1); /* Imagen completamente visible al pasar el cursor */
+}
+
+/* Animación para desplazar el carrusel */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
